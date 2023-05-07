@@ -1,0 +1,3 @@
+[submodule "cpp-network"]
+	path = cpp-network
+	url = https://github.com/Piotr-Brzeski/cpp-network.git
