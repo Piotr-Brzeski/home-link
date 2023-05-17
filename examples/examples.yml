@@ -1,0 +1,32 @@
+targets:
+  test-button-node:
+    platform: macOS
+    type: tool
+    dependencies:
+      - target: home-link
+        link: true
+      - target: cpp-network
+        link: true
+    settings:
+      HEADER_SEARCH_PATHS:
+        - ${SRCROOT}
+        - ${SRCROOT}/cpp-network
+    sources:
+      - path: test-button-node.cpp
+        group: examples
+
+  test-link-controller:
+    platform: macOS
+    type: tool
+    dependencies:
+      - target: home-link
+        link: true
+      - target: cpp-network
+        link: true
+    settings:
+      HEADER_SEARCH_PATHS:
+        - ${SRCROOT}
+        - ${SRCROOT}/cpp-network
+    sources:
+      - path: test-link-controller.cpp
+        group: examples

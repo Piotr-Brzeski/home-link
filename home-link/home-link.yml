@@ -1,0 +1,38 @@
+targets:
+  home-link:
+    platform: macOS
+    type: library.static
+    settings:
+      HEADER_SEARCH_PATHS: ${SRCROOT}/cpp-network
+    sources:
+      - path: controller.cpp
+        group: home-link
+      - path: controller.h
+        group: home-link
+        buildPhase: none
+      - path: node.cpp
+        group: home-link
+      - path: node.h
+        group: home-link
+        buildPhase: none
+      - path: types.cpp
+        group: home-link
+      - path: types.h
+        group: home-link
+        buildPhase: none
+      - path: logger.h
+        group: home-link
+        buildPhase: none
+      - path: map.h
+        group: home-link
+        buildPhase: none
+      - path: message.cpp
+        group: home-link
+      - path: message.h
+        group: home-link
+        buildPhase: none
+      - path: network.cpp
+        group: home-link
+      - path: network.h
+        group: home-link
+        buildPhase: none
