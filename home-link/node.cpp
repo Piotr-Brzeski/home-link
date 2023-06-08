@@ -36,7 +36,7 @@ void node::handle(accept const &message, network::ipv4_address source) {
 
 template<typename T>
 void node::handle(T const& message, network::ipv4_address source) {
-	assert(false);
+	log("Ignoring unknown message from " + network::ipv4_str(source));
 }
 
 void node::add(device_id device_id) {

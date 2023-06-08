@@ -48,7 +48,7 @@ void controller::handle(state const &message, network::ipv4_address source) {
 
 template<typename T>
 void controller::handle(T const& message, network::ipv4_address source) {
-	assert(false);
+	log("Ignoring unknown message from " + network::ipv4_str(source));
 }
 
 void controller::add(device_id device_id) {
