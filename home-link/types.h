@@ -16,14 +16,14 @@
 
 namespace link {
 
-enum device_type: std::uint8_t {
+enum class device_type: std::uint8_t {
 	invalid_type = 0,
 	button = 1
 };
 
 struct device_id {
-	device_type  type;
-	std::uint8_t number;
+	device_type  type = device_type();
+	std::uint8_t number = 0;
 	
 	bool validate() const;
 	
@@ -36,7 +36,7 @@ struct device_id {
 #endif
 };
 
-enum state_type: std::uint8_t {
+enum class state_type: std::uint8_t {
 	invalid = 0,
 	current = 1,
 	target = 2,
@@ -44,8 +44,8 @@ enum state_type: std::uint8_t {
 };
 
 struct device_state_type {
-	device_id   device;
-	state_type  state;
+	device_id   device = device_id();
+	state_type  state = state_type::invalid;
 	
 #ifdef __cpp_impl_three_way_comparison
 	auto operator<=>(device_state_type const&) const = default;
@@ -56,11 +56,14 @@ struct device_state_type {
 #endif
 };
 
-using state_value = std::uint8_t;
+enum class state_value: std::uint8_t {
+	invalid = 0,
+	click = 1,
+};
 
 struct device_state {
-	device_state_type type;
-	state_value       value;
+	device_state_type type = device_state_type();
+	state_value       value = state_value::invalid;
 	
 	bool validate() const;
 	

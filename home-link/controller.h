@@ -27,7 +27,6 @@ public:
 	
 	void start(int port);
 	
-	
 private:
 	using operations = std::vector<operation>;
 	

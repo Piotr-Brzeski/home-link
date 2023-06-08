@@ -114,7 +114,7 @@ devices_list::devices_list(buffer content)
 }
 
 void devices_list::add(device_id device_id) {
-	m_content.append({device_id.type, device_id.number});
+	m_content.append({static_cast<std::uint8_t>(device_id.type), device_id.number});
 	++m_content[1];
 }
 
@@ -189,7 +189,12 @@ state::state(buffer content)
 }
 
 void state::add(device_id device_id, state_type state_type, state_value state_value) {
-	m_content.append({device_id.type, device_id.number, state_type, state_value});
+	m_content.append({
+		static_cast<std::uint8_t>(device_id.type),
+		device_id.number,
+		static_cast<std::uint8_t>(state_type),
+		static_cast<std::uint8_t>(state_value)
+	});
 	++m_content[1];
 }
 
