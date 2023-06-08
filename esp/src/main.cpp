@@ -30,7 +30,7 @@ void setup() {
   delay(10);
   switch1.set_click_callback([&](){
     log("CLICK Callback");
-    node.send(switch_device_id, link::state_type::event, 1);
+    node.send(switch_device_id, link::state_type::event, link::state_value::click);
   });
   Switch::attach_interrupts();
 }
