@@ -35,7 +35,7 @@ int main(int argc, const char * argv[]) {
 		auto node = link::node();
 		auto button = encoder(1);
 		button.on_click = [&]() {
-			node.send(button.id, link::state_type::event, 1);
+			node.send(button.id, link::state_type::event, link::state_value::click);
 		};
 		
 		node.start(configuration::port);

@@ -56,6 +56,7 @@ void controller::add(device_id device_id) {
 }
 
 void controller::add(device_state device_state, operation operation) {
+	add(device_state.type.device);
 	m_operations[device_state].push_back(operation);
 }
 

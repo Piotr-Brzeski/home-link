@@ -14,8 +14,7 @@
 int main(int argc, const char * argv[]) {
 	try {
 		auto controller = link::controller();
-		controller.add({link::device_type::button, 1});
-		controller.add({{{link::device_type::button, 1}, link::state_type::event}, 1}, [](){
+		controller.add({{{link::device_type::button, 1}, link::state_type::event}, link::state_value::click}, [](){
 			std::cout << "CLICKED" << std::endl;
 		});
 		controller.start(configuration::port);
