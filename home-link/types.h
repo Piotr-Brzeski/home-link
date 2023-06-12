@@ -57,8 +57,12 @@ struct device_state_type {
 };
 
 enum class state_value: std::uint8_t {
-	invalid = 0,
-	click = 1,
+	invalid   = 0,
+	click     = 1,
+	plus      = 2,
+	minus     = 3,
+	alt_plus  = 4,
+	alt_minus = 5,
 };
 
 struct device_state {
