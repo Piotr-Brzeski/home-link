@@ -1,3 +1,6 @@
 [submodule "cpp-network"]
 	path = cpp-network
 	url = https://github.com/Piotr-Brzeski/cpp-network.git
+[submodule "cpp-log"]
+	path = cpp-log
+	url = https://github.com/Piotr-Brzeski/cpp-log

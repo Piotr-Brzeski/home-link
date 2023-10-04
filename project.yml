@@ -21,4 +21,5 @@ settings:
 include:
   - home-link/home-link.yml
   - cpp-network/cpp-network/cpp-network.yml
+  - cpp-log/cpp-log/cpp-log.yml
   - examples/examples.yml
