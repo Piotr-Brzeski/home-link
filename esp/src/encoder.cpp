@@ -38,10 +38,10 @@ void Encoder::set_callbacks(Callback left_callback, Callback right_callback)
 	m_right_callback = right_callback;
 }
 
-void Encoder::set_shift_callbacks(Callback left_callback, Callback right_callback)
+void Encoder::set_alt_callbacks(Callback left_callback, Callback right_callback)
 {
-	m_left_shift_callback = left_callback;
-	m_right_shift_callback = right_callback;
+	m_left_alt_callback = left_callback;
+	m_right_alt_callback = right_callback;
 }
 
 void Encoder::set_click_callback(Callback callback)
@@ -99,11 +99,11 @@ void Encoder::update_encoder()
 		}
 	}
 	else {
-		if(m_position > 0 && m_right_shift_callback) {
-			callback = &m_right_shift_callback;
+		if(m_position > 0 && m_right_alt_callback) {
+			callback = &m_right_alt_callback;
 		}
-		else if(m_position < 0 && m_left_shift_callback) {
-			callback = &m_left_shift_callback;
+		else if(m_position < 0 && m_left_alt_callback) {
+			callback = &m_left_alt_callback;
 		}
 		m_switch_mode = SwitchMode::Shift;
 	}
