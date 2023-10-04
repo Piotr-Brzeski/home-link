@@ -20,7 +20,7 @@ public:
 	Encoder(uint8_t pin_1_number, uint8_t pin_2_number, uint8_t switch_pin_number);
 
 	void set_callbacks(Callback left_callback, Callback right_callback);
-	void set_shift_callbacks(Callback left_callback, Callback right_callback);
+	void set_alt_callbacks(Callback left_callback, Callback right_callback);
 	void set_click_callback(Callback callback);
 
 private:
@@ -42,7 +42,7 @@ private:
 	int                   m_position = 0;
 	Callback              m_left_callback;
 	Callback              m_right_callback;
-	Callback              m_left_shift_callback;
-	Callback              m_right_shift_callback;
+	Callback              m_left_alt_callback;
+	Callback              m_right_alt_callback;
 	Callback              m_click_callback;
 };

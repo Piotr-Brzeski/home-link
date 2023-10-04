@@ -15,15 +15,19 @@
 
 #include "../../configuration.h"
 
-auto encoder = Encoder(2, 3, 1);
-auto switch_device_id = link::device_id{link::device_type::button, 1};
+constexpr std::uint8_t livingroom = 1;
+constexpr std::uint8_t bathroom1 = 2;
+constexpr std::uint8_t kitchen = 3;
+
+auto encoder = Encoder(3, 2, 1);
+auto switch_device_id = link::device_id{link::device_type::button, kitchen};
 auto node = link::node();
 
 void setup() {
 	Serial.begin(9600);
-	delay(1000);
+	delay(10);
 	log("START");
-	delay(500);
+	delay(10);
 	node.add(switch_device_id);
 	node.start(configuration::port, configuration::ssid, configuration::password);
 	delay(10);
@@ -37,6 +41,13 @@ void setup() {
 	}, [&](){
 		log("Plus");
 		node.send(switch_device_id, link::state_type::event, link::state_value::plus);
+	});
+	encoder.set_alt_callbacks([&](){
+		log("Alt Minus");
+		node.send(switch_device_id, link::state_type::event, link::state_value::alt_minus);
+	}, [&](){
+		log("Alt Plus");
+		node.send(switch_device_id, link::state_type::event, link::state_value::alt_plus);
 	});
 	Switch::attach_interrupts();
 }
