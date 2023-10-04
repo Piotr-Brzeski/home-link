@@ -3,7 +3,9 @@ targets:
     platform: macOS
     type: library.static
     settings:
-      HEADER_SEARCH_PATHS: ${SRCROOT}/cpp-network
+      HEADER_SEARCH_PATHS:
+        - ${SRCROOT}/cpp-network
+        - ${SRCROOT}/cpp-log
     sources:
       - path: controller.cpp
         group: home-link
@@ -18,9 +20,6 @@ targets:
       - path: types.cpp
         group: home-link
       - path: types.h
-        group: home-link
-        buildPhase: none
-      - path: logger.h
         group: home-link
         buildPhase: none
       - path: map.h

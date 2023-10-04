@@ -7,7 +7,7 @@
 //
 
 #include "message.h"
-#include "logger.h"
+#include <cpp-log/log.h>
 #include <algorithm>
 
 using namespace homelink;

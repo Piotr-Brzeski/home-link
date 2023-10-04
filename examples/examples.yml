@@ -7,6 +7,8 @@ targets:
         link: true
       - target: cpp-network
         link: true
+      - target: cpp-log
+        link: true
     settings:
       HEADER_SEARCH_PATHS:
         - ${SRCROOT}
@@ -22,6 +24,8 @@ targets:
       - target: home-link
         link: true
       - target: cpp-network
+        link: true
+      - target: cpp-log
         link: true
     settings:
       HEADER_SEARCH_PATHS:

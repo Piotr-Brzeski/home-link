@@ -7,7 +7,7 @@
 //
 
 #include "network.h"
-#include "logger.h"
+#include <cpp-log/log.h>
 
 using namespace homelink;
 
