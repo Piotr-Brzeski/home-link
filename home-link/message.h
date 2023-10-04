@@ -14,7 +14,7 @@
 #include <variant>
 #include <optional>
 
-namespace link {
+namespace homelink {
 
 // MARK: message
 class message {

@@ -13,7 +13,7 @@
 #include <array>
 #include <limits>
 
-namespace link {
+namespace homelink {
 
 template<typename key_t, typename value_t, std::uint8_t max_size>
 class map {

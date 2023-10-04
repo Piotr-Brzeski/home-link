@@ -10,7 +10,7 @@
 #include "logger.h"
 #include <algorithm>
 
-using namespace link;
+using namespace homelink;
 
 namespace {
 
@@ -215,7 +215,7 @@ bool state::validate() const {
 }
 
 // MARK: - some_message
-some_message link::get_message(buffer buffer) {
+some_message homelink::get_message(buffer buffer) {
 	auto message = some_message();
 	if(!buffer.empty()) {
 		switch(buffer[0]) {

@@ -14,7 +14,7 @@
 	#include <compare>
 #endif
 
-namespace link {
+namespace homelink {
 
 enum class device_type: std::uint8_t {
 	invalid_type = 0,

@@ -12,7 +12,7 @@
 #include "types.h"
 #include "network.h"
 
-namespace link {
+namespace homelink {
 
 class message;
 

@@ -8,7 +8,7 @@
 
 #include "types.h"
 
-using namespace link;
+using namespace homelink;
 
 namespace {
 
@@ -28,7 +28,7 @@ bool device_state::validate() const {
 	return type.device.validate() && ::validate(type.state);
 }
 
-std::string link::description(buffer const& buffer) {
+std::string homelink::description(buffer const& buffer) {
 	constexpr std::size_t max_size = 15;
 	auto str = std::string("{size=");
 	auto size = buffer.size();

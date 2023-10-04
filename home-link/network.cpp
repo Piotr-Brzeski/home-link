@@ -9,7 +9,7 @@
 #include "network.h"
 #include "logger.h"
 
-using namespace link;
+using namespace homelink;
 
 void connection::start(int port,
                        std::function<void()> start_callback,

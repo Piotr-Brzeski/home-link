@@ -10,7 +10,7 @@
 
 #include <cpp-network/server.h>
 
-namespace link {
+namespace homelink {
 
 class connection {
 public:

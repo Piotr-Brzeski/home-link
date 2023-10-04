@@ -10,7 +10,7 @@
 #include "message.h"
 #include "logger.h"
 
-using namespace link;
+using namespace homelink;
 
 template<>
 void node::handle(advertisement const &message, network::ipv4_address source) {

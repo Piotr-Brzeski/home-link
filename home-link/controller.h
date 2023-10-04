@@ -14,7 +14,7 @@
 #include <vector>
 #include <functional>
 
-namespace link {
+namespace homelink {
 
 class message;
 
