@@ -14,6 +14,11 @@ namespace homelink {
 
 class connection {
 public:
+	template<class Task, class Period>
+	void set_periodic_task(Task task, Period period) {
+		m_server.set_periodic_task(task, period);
+	}
+	
 	void start(int port,
 	           std::function<void()> start_callback,
 	           std::function<void(network::message const&)> recv_callback,

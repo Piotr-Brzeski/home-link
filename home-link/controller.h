@@ -25,6 +25,11 @@ public:
 	void add(device_id device_id);
 	void add(device_state device_state, operation operation);
 	
+	template<class Task, class Period>
+	void set_periodic_task(Task task, Period period) {
+		m_network.set_periodic_task(task, period);
+	}
+	
 	void start(int port);
 	void wait();
 	
