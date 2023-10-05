@@ -80,6 +80,10 @@ void controller::start(int port) {
 	});
 }
 
+void controller::wait() {
+	m_network.wait();
+}
+
 void controller::broadcast(message const& message) {
 	log::log("broadcast: " + message.description());
 	m_network.broadcast(m_port, message.get_content());

@@ -26,6 +26,7 @@ public:
 	void add(device_state device_state, operation operation);
 	
 	void start(int port);
+	void wait();
 	
 private:
 	using operations = std::vector<operation>;

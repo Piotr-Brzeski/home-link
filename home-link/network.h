@@ -18,6 +18,7 @@ public:
 	           std::function<void()> start_callback,
 	           std::function<void(network::message const&)> recv_callback,
 	           const char* = nullptr, const char* = nullptr);
+	void wait();
 
 	void broadcast(int port, network::buffer const& data);
 	void send(network::ipv4_address address, int port, network::buffer const& data);

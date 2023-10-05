@@ -22,6 +22,10 @@ void connection::start(int port,
 	}
 }
 
+void connection::wait() {
+	m_server.wait();
+}
+
 void connection::broadcast(int port, network::buffer const& data) {
 	m_sender.broadcast(port, data);
 }
