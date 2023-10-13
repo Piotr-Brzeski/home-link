@@ -13,6 +13,7 @@ targets:
       HEADER_SEARCH_PATHS:
         - ${SRCROOT}
         - ${SRCROOT}/cpp-network
+        - ${SRCROOT}/cpp-log
     sources:
       - path: test-button-node.cpp
         group: examples
@@ -31,6 +32,7 @@ targets:
       HEADER_SEARCH_PATHS:
         - ${SRCROOT}
         - ${SRCROOT}/cpp-network
+        - ${SRCROOT}/cpp-log
     sources:
       - path: test-link-controller.cpp
         group: examples

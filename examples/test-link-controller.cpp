@@ -7,14 +7,16 @@
 //
 
 #include <home-link/controller.h>
+#include <cpp-log/log.h>
 #include <iostream>
 
 #include "../configuration.h"
 
 int main(int argc, const char * argv[]) {
 	try {
-		auto controller = link::controller();
-		controller.add({{{link::device_type::button, 1}, link::state_type::event}, link::state_value::click}, [](){
+		auto log = logger::start(logger::cout());
+		auto controller = homelink::controller();
+		controller.add({{{homelink::device_type::button, 1}, homelink::state_type::event}, homelink::state_value::click}, [](){
 			std::cout << "CLICKED" << std::endl;
 		});
 		controller.start(configuration::port);

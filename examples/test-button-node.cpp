@@ -7,6 +7,7 @@
 //
 
 #include <home-link/node.h>
+#include <cpp-log/log.h>
 #include <functional>
 #include <iostream>
 #include <string>
@@ -16,7 +17,7 @@
 class encoder {
 public:
 	encoder(std::uint8_t number)
-		: id{link::device_type::button, number} {
+		: id{homelink::device_type::button, number} {
 	}
 	
 	void click() {
@@ -25,17 +26,18 @@ public:
 		}
 	}
 	
-	const link::device_id id;
+	const homelink::device_id id;
 	std::function<void()> on_click;
 };
 
 
 int main(int argc, const char * argv[]) {
 	try {
-		auto node = link::node();
+		auto log = logger::start(logger::cout());
+		auto node = homelink::node();
 		auto button = encoder(1);
 		button.on_click = [&]() {
-			node.send(button.id, link::state_type::event, link::state_value::click);
+			node.send(button.id, homelink::state_type::event, homelink::state_value::click);
 		};
 		
 		node.start(configuration::port);

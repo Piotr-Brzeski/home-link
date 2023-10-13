@@ -48,7 +48,7 @@ void controller::handle(state const &message, network::ipv4_address source) {
 
 template<typename T>
 void controller::handle(T const& message, network::ipv4_address source) {
-	log::log("Ignoring unknown message from " + network::ipv4_str(source));
+	logger::log("Ignoring unknown message from " + network::ipv4_str(source));
 }
 
 void controller::add(device_id device_id) {
@@ -63,15 +63,15 @@ void controller::add(device_state device_state, operation operation) {
 void controller::start(int port) {
 	m_port = port;
 	m_network.start(m_port, [this](){
-		log::log("NET STARTED");
+		logger::log("NET STARTED");
 		// Send adv(controller)
 		auto const node_advertisement = advertisement(advertisement::source::controller);
 		broadcast(node_advertisement);
 	}, [this](network::message const& network_message){
-		log::log("recv: " + description(network_message.content) + " from " + network::ipv4_str(network_message.source));
+		logger::log("recv: " + description(network_message.content) + " from " + network::ipv4_str(network_message.source));
 		auto const& message = get_message(network_message.content);
 		if(!message) {
-			log::log("Invalid message");
+			logger::log("Invalid message");
 			return;
 		}
 		std::visit([this, source = network_message.source](auto&& message){
@@ -85,11 +85,11 @@ void controller::wait() {
 }
 
 void controller::broadcast(message const& message) {
-	log::log("broadcast: " + message.description());
+	logger::log("broadcast: " + message.description());
 	m_network.broadcast(m_port, message.get_content());
 }
 
 void controller::send(network::ipv4_address address, message const& message) {
-	log::log("send: " + (message.description() + " to: ") + network::ipv4_str(address));
+	logger::log("send: " + (message.description() + " to: ") + network::ipv4_str(address));
 	m_network.send(address, m_port, message.get_content());
 }
