@@ -12,6 +12,8 @@
 #include <Arduino.h>
 #include <string>
 
+namespace logger {
+
 template<typename T>
 void log(T const& message) {
   Serial.println(message);
@@ -20,4 +22,6 @@ void log(T const& message) {
 template<>
 inline void log(std::string const& message) {
   Serial.println(message.c_str());
+}
+
 }

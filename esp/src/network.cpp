@@ -8,9 +8,9 @@
 //
 
 #include "network.h"
-#include "logger.h"
+#include <cpp-log/log.h>
 
-using namespace link;
+using namespace homelink;
 
 void connection::start(int port,
                        std::function<void()> start_callback,
@@ -21,8 +21,8 @@ void connection::start(int port,
   while(WiFi.status() != WL_CONNECTED) {
     delay(100);
   }
-  log(WiFi.localIP());
-  log("WiFi connected."); 
+  logger::log(WiFi.localIP());
+  logger::log("WiFi connected."); 
   // UDP
   auto result = m_udp.begin(port);
 	if(result != 1) {

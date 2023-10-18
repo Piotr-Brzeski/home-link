@@ -35,7 +35,7 @@ inline std::string ipv4_str(ipv4_address const& address) {
 
 }
 
-namespace link {
+namespace homelink {
 
 class connection {
 public:
