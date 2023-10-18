@@ -19,7 +19,7 @@ bool validate_list(buffer const& content) {
 	if(size < 1) {
 		return false;
 	}
-	auto number_of_elements = content[2];
+	auto number_of_elements = content[1];
 	if(size != 2 + number_of_elements*sizeof(Element)) {
 		return false;
 	}
