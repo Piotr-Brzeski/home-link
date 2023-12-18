@@ -25,9 +25,21 @@ public:
 			on_click();
 		}
 	}
-	
+	void plus() {
+		if(on_plus) {
+			on_plus();
+		}
+	}
+	void minus() {
+		if(on_minus) {
+			on_minus();
+		}
+	}
+
 	const homelink::device_id id;
 	std::function<void()> on_click;
+	std::function<void()> on_plus;
+	std::function<void()> on_minus;
 };
 
 
@@ -35,11 +47,17 @@ int main(int argc, const char * argv[]) {
 	try {
 		auto log = logger::start(logger::cout());
 		auto node = homelink::node();
-		auto button = encoder(1);
+		auto button = encoder(4);
 		button.on_click = [&]() {
 			node.send(button.id, homelink::state_type::event, homelink::state_value::click);
 		};
-		
+		button.on_plus = [&]() {
+			node.send(button.id, homelink::state_type::event, homelink::state_value::plus);
+		};
+		button.on_minus = [&]() {
+			node.send(button.id, homelink::state_type::event, homelink::state_value::minus);
+		};
+		node.add(button.id);
 		node.start(configuration::port);
 		
 		std::string cmd;
@@ -48,7 +66,15 @@ int main(int argc, const char * argv[]) {
 			if(cmd == "q") {
 				break;
 			}
-			button.click();
+			if(cmd == "+") {
+				button.plus();
+			}
+			else if(cmd == "-") {
+				button.minus();
+			}
+			else {
+				button.click();
+			}
 		}
 		
 		return 0;
